@@ -21,5 +21,8 @@ How to install and configurate package
     ],
 4.  test if it works
   http://localhost/model/query?view=card
+  
+5. if you need to custom diff route , related controller method mapping and acceptable route method,
+   just modify each ResourceRegistrarRuleXXX class or create new registrar rule class which implements ResourceRegistrarRuleContract
 
-5.please notify me if you got any problem or error on it,thank you!
+6. please notify me if you got any problem or error on it,thank you!
