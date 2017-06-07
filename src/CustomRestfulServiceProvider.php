@@ -1,5 +1,4 @@
-﻿<?php
-
+<?php
 namespace Jacksunny\CustomRestful;
 
 use Illuminate\Support\ServiceProvider;
