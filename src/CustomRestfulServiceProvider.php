@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 namespace Jacksunny\CustomRestful;
 
@@ -21,7 +21,7 @@ class CustomRestfulServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        //×¢²áresourceÂ·ÓÉ¶ÔÓ¦µÄÂ·ÓÉÆ¥ÅäÀà£¬Ê¹ÓÃ×Ô¶¨ÒåµÄÂ·ÓÉ¹æÔò CustomResourceRegistrar
+        //æ³¨å†Œresourceè·¯ç”±å¯¹åº”çš„è·¯ç”±åŒ¹é…ç±»ï¼Œä½¿ç”¨è‡ªå®šä¹‰çš„è·¯ç”±è§„åˆ™ CustomResourceRegistrar
         \App::bind('Illuminate\Routing\ResourceRegistrar', function () {
             $registrar = \App::make(CustomResourceRegistrar::class);
             return $registrar->addRuleUpdate(new ResourceRegistrarRuleUpdate())

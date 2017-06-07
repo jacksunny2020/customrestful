@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,7 +12,7 @@ use Illuminate\Routing\ResourceRegistrar;
 
 /**
  *
- * @author Ê©³¯Ñô
+ * @author æ–½æœé˜³
  * @date 2017-6-7 10:13:21
  */
 class ResourceRegistrarRuleUpdate implements ResourceRegistrarRuleContract {

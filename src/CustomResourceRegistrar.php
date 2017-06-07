@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,7 +14,7 @@ use Illuminate\Routing\Router;
 /**
  * Description of ExtendedResourceRegistrar
  *
- * @author Ê©³¯Ñô
+ * @author Ê©ï¿½ï¿½ï¿½ï¿½
  * @date 2017-5-5 14:38:13
  */
 class CustomResourceRegistrar extends ResourceRegistrar {
@@ -74,16 +74,18 @@ class CustomResourceRegistrar extends ResourceRegistrar {
     }
 
     private function addResourceAction(ResourceRegistrarRuleContract $rule, $name, $base, $controller, $options) {
-        $uri = $this->getResourceUri($name) . $rule->getResourceUriPostfix($name, $base, $controller, $options);
+        $postfix = $rule->getResourceUriPostfix($name, $base, $controller, $options);
+        $uri = $this->getResourceUri($name) . $postfix;
 
-        $action = $this->getResourceAction($name, $controller, $rule->getActionName($name, $base, $controller, $options), $options);
-
-        return $this->router->match($rule->getMatchHttpMethodArray($name, $base, $controller, $options), $uri, $action);
+        $name = $rule->getActionName($name, $base, $controller, $options);
+        $action = $this->getResourceAction($name, $controller, $name, $options);
+        $method_array = $rule->getMatchHttpMethodArray($name, $base, $controller, $options);
+        return $this->router->match($method_array, $uri, $action);
     }
 
     /**
      * Add the update method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/update 
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/update 
      *
      * @param  string  $name
      * @param  string  $base
@@ -97,7 +99,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the destroy method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/remove
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/remove
      *
      * @param  string  $name
      * @param  string  $base
@@ -111,7 +113,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the index method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/query
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/query
      *
      * @param  string  $name
      * @param  string  $base
@@ -125,7 +127,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the create method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/blanknew
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/blanknew
      * @param  string  $name
      * @param  string  $base
      * @param  string  $controller
@@ -138,7 +140,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the store method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/create
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/create
      *
      * @param  string  $name
      * @param  string  $base
@@ -152,7 +154,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the show method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/detail
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/view
      *
      * @param  string  $name
      * @param  string  $base
@@ -166,7 +168,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
 
     /**
      * Add the edit method for a resourceful route.
-     * Ö§³ÖÂ·ÓÉ /mymodel/edit
+     * Ö§ï¿½ï¿½Â·ï¿½ï¿½ /mymodel/edit
      *
      * @param  string  $name
      * @param  string  $base

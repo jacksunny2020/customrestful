@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,17 +12,17 @@ use Illuminate\Routing\ResourceRegistrar;
 
 /**
  *
- * @author Ê©³¯Ñô
+ * @author æ–½æœé˜³
  * @date 2017-6-7 10:13:21
  */
 interface ResourceRegistrarRuleContract {
 
-    //µÃµ½×ÊÔ´urlµÄ/mymodelºóÃæ²¿·Ö£¬º¬Ð±¸Ü
+    //å¾—åˆ°èµ„æºurlçš„/mymodelåŽé¢éƒ¨åˆ†ï¼Œå«æ–œæ 
     function getResourceUriPostfix($name, $base, $controller, $options);
 
-    //µÃµ½¶ÔÓ¦¿ØÖÆÆ÷·½·¨Ãû³Æ
+    //å¾—åˆ°å¯¹åº”æŽ§åˆ¶å™¨æ–¹æ³•åç§°
     function getActionName($name, $base, $controller, $options);
 
-    //µÃµ½Ö»ÐèÒªÖ§³ÖµÄhttpÇëÇó·½·¨Ãû³ÆµÄÊý×éÈç ['GET','POST']
+    //å¾—åˆ°åªéœ€è¦æ”¯æŒçš„httpè¯·æ±‚æ–¹æ³•åç§°çš„æ•°ç»„å¦‚ ['GET','POST']
     function getMatchHttpMethodArray($name, $base, $controller, $options);
 }
