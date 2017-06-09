@@ -1,5 +1,5 @@
 # customrestful
-custom restful resource controller for laravel
+custom restful resource controller plugin for laravel
 
 How to install and configurate package
 
