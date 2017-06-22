@@ -1,4 +1,5 @@
 <?php
+
 namespace Jacksunny\CustomRestful;
 
 use Illuminate\Support\ServiceProvider;
@@ -29,7 +30,18 @@ class CustomRestfulServiceProvider extends ServiceProvider {
                             ->addRuleEdit(new ResourceRegistrarRuleEdit())
                             ->addRuleIndex(new ResourceRegistrarRuleIndex())
                             ->addRuleStore(new ResourceRegistrarRuleStore())
-                            ->addRuleShow(new ResourceRegistrarRuleShow());
+                            ->addRuleShow(new ResourceRegistrarRuleShow())
+                            ->addRuleCard(new ResourceRegistrarRuleCard())
+                            ->addRuleMini(new ResourceRegistrarRuleMini())
+                            ->addRuleItem(new ResourceRegistrarRuleItem())
+                            ->addRuleBlock(new ResourceRegistrarRuleBlock())
+                            ->addRulePopup(new ResourceRegistrarRulePopup())
+                            ->addRuleHome(new ResourceRegistrarRuleHome())
+                            ->addRuleProfile(new ResourceRegistrarRuleProfile())
+                            ->addRuleDashboard(new ResourceRegistrarRuleDashboard())
+                            ->addRuleListing(new ResourceRegistrarRuleListing())
+                            ->addRuleDetail(new ResourceRegistrarRuleDetail())
+            ;
         });
     }
 

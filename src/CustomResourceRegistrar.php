@@ -24,7 +24,8 @@ class CustomResourceRegistrar extends ResourceRegistrar {
      *
      * @var array
      */
-    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
+    //protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
+    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing'];
 
     public function __construct(Router $router) {
         parent::__construct($router);
@@ -37,6 +38,115 @@ class CustomResourceRegistrar extends ResourceRegistrar {
     protected $rule_store;
     protected $rule_show;
     protected $rule_edit;
+    protected $rule_card;
+
+    public function addRuleCard(ResourceRegistrarRuleContract $rule) {
+        $this->rule_card = $rule;
+        return $this;
+    }
+
+    protected function addResourceCard($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_card, $name, $base, $controller, $options);
+    }
+
+    protected $rule_mini;
+
+    public function addRuleMini(ResourceRegistrarRuleContract $rule) {
+        $this->rule_mini = $rule;
+        return $this;
+    }
+
+    protected function addResourceMini($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_mini, $name, $base, $controller, $options);
+    }
+
+    protected $rule_item;
+
+    public function addRuleItem(ResourceRegistrarRuleContract $rule) {
+        $this->rule_item = $rule;
+        return $this;
+    }
+
+    protected function addResourceItem($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_item, $name, $base, $controller, $options);
+    }
+
+    protected $rule_block;
+
+    public function addRuleBlock(ResourceRegistrarRuleContract $rule) {
+        $this->rule_block = $rule;
+        return $this;
+    }
+
+    protected function addResourceBlock($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_block, $name, $base, $controller, $options);
+    }
+
+    protected $rule_popup;
+
+    public function addRulePopup(ResourceRegistrarRuleContract $rule) {
+        $this->rule_popup = $rule;
+        return $this;
+    }
+
+    protected function addResourcePopup($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_popup, $name, $base, $controller, $options);
+    }
+
+    protected $rule_home;
+
+    public function addRuleHome(ResourceRegistrarRuleContract $rule) {
+        $this->rule_home = $rule;
+        return $this;
+    }
+
+    protected function addResourceHome($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_home, $name, $base, $controller, $options);
+    }
+
+    protected $rule_profile;
+
+    public function addRuleProfile(ResourceRegistrarRuleContract $rule) {
+        $this->rule_profile = $rule;
+        return $this;
+    }
+
+    protected function addResourceProfile($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_profile, $name, $base, $controller, $options);
+    }
+
+    protected $rule_dashboard;
+
+    public function addRuleDashboard(ResourceRegistrarRuleContract $rule) {
+        $this->rule_dashboard = $rule;
+        return $this;
+    }
+
+    protected function addResourceDashboard($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_dashboard, $name, $base, $controller, $options);
+    }
+
+    protected $rule_listing;
+
+    public function addRuleListing(ResourceRegistrarRuleContract $rule) {
+        $this->rule_listing = $rule;
+        return $this;
+    }
+
+    protected function addResourceListing($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_listing, $name, $base, $controller, $options);
+    }
+
+    protected $rule_detail;
+
+    public function addRuleDetail(ResourceRegistrarRuleContract $rule) {
+        $this->rule_detail = $rule;
+        return $this;
+    }
+
+    protected function addResourceDetail($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->$rule_detail, $name, $base, $controller, $options);
+    }
 
     public function addRuleUpdate(ResourceRegistrarRuleContract $rule) {
         $this->rule_update = $rule;
