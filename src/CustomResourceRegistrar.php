@@ -25,7 +25,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
      * @var array
      */
     //protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
-    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing'];
+    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing', 'detail'];
 
     public function __construct(Router $router) {
         parent::__construct($router);
@@ -145,7 +145,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
     }
 
     protected function addResourceDetail($name, $base, $controller, $options) {
-        return $this->addResourceAction($this->$rule_detail, $name, $base, $controller, $options);
+        return $this->addResourceAction($this->rule_detail, $name, $base, $controller, $options);
     }
 
     public function addRuleUpdate(ResourceRegistrarRuleContract $rule) {
