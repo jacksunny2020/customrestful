@@ -25,7 +25,8 @@ class CustomResourceRegistrar extends ResourceRegistrar {
      * @var array
      */
     //protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy'];
-    protected $resourceDefaults = ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing', 'detail'];
+    //protected $resourceDefaults = ['index', 'add', 'store', 'show', 'modify', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing', 'detail'];
+    protected $resourceDefaults = ['index', 'store', 'show', 'update', 'destroy', 'card', 'mini', 'item', 'block', 'popup', 'home', 'profile', 'dashboard', 'listing', 'detail', 'form'];
 
     public function __construct(Router $router) {
         parent::__construct($router);
@@ -34,10 +35,10 @@ class CustomResourceRegistrar extends ResourceRegistrar {
     protected $rule_update;
     protected $rule_destroy;
     protected $rule_index;
-    protected $rule_create;
+    protected $rule_add;
     protected $rule_store;
     protected $rule_show;
-    protected $rule_edit;
+    protected $rule_modify;
     protected $rule_card;
 
     public function addRuleCard(ResourceRegistrarRuleContract $rule) {
@@ -147,6 +148,18 @@ class CustomResourceRegistrar extends ResourceRegistrar {
     protected function addResourceDetail($name, $base, $controller, $options) {
         return $this->addResourceAction($this->rule_detail, $name, $base, $controller, $options);
     }
+    
+    protected $rule_form;
+
+    public function addRuleForm(ResourceRegistrarRuleContract $rule) {
+        $this->rule_form = $rule;
+        return $this;
+    }
+
+    protected function addResourceForm($name, $base, $controller, $options) {
+        return $this->addResourceAction($this->rule_form, $name, $base, $controller, $options);
+    }
+    
 
     public function addRuleUpdate(ResourceRegistrarRuleContract $rule) {
         $this->rule_update = $rule;
@@ -163,8 +176,8 @@ class CustomResourceRegistrar extends ResourceRegistrar {
         return $this;
     }
 
-    public function addRuleCreate(ResourceRegistrarRuleContract $rule) {
-        $this->rule_create = $rule;
+    public function addRuleAdd(ResourceRegistrarRuleContract $rule) {
+        $this->rule_add = $rule;
         return $this;
     }
 
@@ -178,8 +191,8 @@ class CustomResourceRegistrar extends ResourceRegistrar {
         return $this;
     }
 
-    public function addRuleEdit(ResourceRegistrarRuleContract $rule) {
-        $this->rule_edit = $rule;
+    public function addRuleModify(ResourceRegistrarRuleContract $rule) {
+        $this->rule_modify = $rule;
         return $this;
     }
 
@@ -245,7 +258,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
      * @return \Illuminate\Routing\Route
      */
     protected function addResourceCreate($name, $base, $controller, $options) {
-        return $this->addResourceAction($this->rule_create, $name, $base, $controller, $options);
+        return $this->addResourceAction($this->rule_add, $name, $base, $controller, $options);
     }
 
     /**
@@ -287,7 +300,7 @@ class CustomResourceRegistrar extends ResourceRegistrar {
      * @return \Illuminate\Routing\Route
      */
     protected function addResourceEdit($name, $base, $controller, $options) {
-        return $this->addResourceAction($this->rule_edit, $name, $base, $controller, $options);
+        return $this->addResourceAction($this->rule_modify, $name, $base, $controller, $options);
     }
 
 }

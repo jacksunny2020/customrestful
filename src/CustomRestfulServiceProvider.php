@@ -25,9 +25,9 @@ class CustomRestfulServiceProvider extends ServiceProvider {
         \App::bind('Illuminate\Routing\ResourceRegistrar', function () {
             $registrar = \App::make(CustomResourceRegistrar::class);
             return $registrar->addRuleUpdate(new ResourceRegistrarRuleUpdate())
-                            ->addRuleCreate(new ResourceRegistrarRuleCreate())
+//                            ->addRuleAdd(new ResourceRegistrarRuleAdd())
                             ->addRuleDestroy(new ResourceRegistrarRuleDestroy())
-                            ->addRuleEdit(new ResourceRegistrarRuleEdit())
+//                            ->addRuleModify(new ResourceRegistrarRuleModify())
                             ->addRuleIndex(new ResourceRegistrarRuleIndex())
                             ->addRuleStore(new ResourceRegistrarRuleStore())
                             ->addRuleShow(new ResourceRegistrarRuleShow())
@@ -41,6 +41,7 @@ class CustomRestfulServiceProvider extends ServiceProvider {
                             ->addRuleDashboard(new ResourceRegistrarRuleDashboard())
                             ->addRuleListing(new ResourceRegistrarRuleListing())
                             ->addRuleDetail(new ResourceRegistrarRuleDetail())
+                            ->addRuleForm(new ResourceRegistrarRuleForm())
             ;
         });
     }
